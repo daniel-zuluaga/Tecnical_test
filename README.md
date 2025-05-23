@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+This project use a Apis of Dogs for show the breeds, facts and groups of breeds with base a the Api free
+
 ## Getting Started
 
 First, run the development server:
