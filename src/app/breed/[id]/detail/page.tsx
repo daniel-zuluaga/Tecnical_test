@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { DogBreed } from '@/models/dog';
 import { use } from 'react';
+import { getBreedById } from '@/api/dogService';
 
 export default function BreedDetail({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
@@ -16,10 +17,8 @@ export default function BreedDetail({ params }: { params: Promise<{ id: string }
     const fetchBreedDetails = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`https://dogapi.dog/api/v2/breeds/${id}`);
-        if (!response.ok) throw new Error('Error al cargar los detalles');
-        const data = await response.json();
-        setBreed(data.data);
+        const response = await getBreedById(id);
+        setBreed(response);
       } catch (err) {
         setError('Error al cargar los detalles de la raza');
         console.error(err);
