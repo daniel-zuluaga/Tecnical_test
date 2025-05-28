@@ -35,20 +35,16 @@ export const DogBreeds = () => {
   const getPageNumbers = () => {
     const pages = [];
     if (totalPages <= 3) {
-      // Si hay 3 o menos páginas, mostrar todas
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
       }
     } else {
-      // Si la página actual es 1 o 2
       if (currentPage <= 2) {
         pages.push(1, 2, 3);
       }
-      // Si la página actual es la última o penúltima
       else if (currentPage >= totalPages - 1) {
         pages.push(totalPages - 2, totalPages - 1, totalPages);
       }
-      // Para páginas en el medio
       else {
         pages.push(currentPage - 1, currentPage, currentPage + 1);
       }
